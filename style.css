@@ -1,176 +1,159 @@
-/* ================================
-   STYLE GLOBAL
-================================ */
-* {
-  box-sizing: border-box;
-}
-
+/* === Style de base (mobile par défaut) === */
 body {
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: 16px;
+  font-family: Arial, sans-serif;
   margin: 0;
   padding: 0;
+  text-align: center;
   background-color: #f4f4f4;
   color: #333;
 }
 
-/* ================================
-   EN-TÊTE
-================================ */
+/* ---- HEADER ---- */
 header {
-  background-color: #1e1e1e;
-  color: white;
-  text-align: center;
-  padding: 30px 15px;
+  background-color: #222;
+  color: #fff;
+  padding: 20px;
 }
 
-header img.logo {
+header img {
+  width: 150px;
   display: block;
-  margin: 0 auto 10px;
-}
-
-h1 {
-  font-family: "Trebuchet MS", sans-serif;
-  font-size: 2em;
-  color: #f39c12;
-  margin-bottom: 10px;
-}
-
-/* ================================
-   NAVIGATION
-================================ */
-nav {
-  background-color: #333;
+  margin: 0 auto;
 }
 
 nav ul {
   list-style: none;
-  margin: 0;
   padding: 0;
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap; /* ✅ meilleure adaptation mobile */
+  margin: 0;
 }
 
 nav li {
-  flex: 1 1 150px;
-  text-align: center;
+  display: block;
+  margin: 10px 0;
 }
 
 nav a {
-  display: block;
-  padding: 12px 0;
-  color: white;
   text-decoration: none;
-  text-transform: uppercase;
+  color: #ffcc00;
   font-weight: bold;
-  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-nav a:hover,
 nav a.active {
-  background-color: #f39c12;
-  color: #000;
+  color: #fff;
+  border-bottom: 2px solid #ffcc00;
 }
 
-/* ================================
-   CONTENU PRINCIPAL
-================================ */
+/* ---- CONTENU ---- */
 main {
-  background-color: #ffffff;
-  padding: 30px 20px;
-  max-width: 1200px;
-  margin: 0 auto;
+  padding: 20px;
 }
 
-p {
-  line-height: 1.6;
-  margin-bottom: 1em;
+h1, h2 {
+  color: #222;
 }
 
-/* ================================
-   GRILLE DE VOITURES
-================================ */
-.catalogue {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 25px;
-  margin-top: 30px;
-}
-
-.car {
-  background-color: #fafafa;
-  border: 1px solid #ddd;
-  border-radius: 10px;
-  text-align: center;
+/* ---- PAGE ACCUEIL ---- */
+.vehicule {
+  background-color: #fff;
+  margin: 15px auto;
   padding: 15px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.car:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
-}
-
-.car img {
+  border: 1px solid #ddd;
   border-radius: 8px;
+  max-width: 90%;
+}
+
+.vehicule img {
   width: 100%;
   height: auto;
-  object-fit: cover;
-  margin-bottom: 10px;
-}
-
-.car h3 {
-  color: #1e1e1e;
-  margin: 10px 0;
+  border-radius: 8px;
 }
 
 .btn {
   display: inline-block;
-  margin-top: 10px;
-  padding: 10px 20px;
-  background-color: #f39c12;
-  color: white;
-  border-radius: 5px;
+  background-color: #ffcc00;
+  color: #222;
+  padding: 8px 16px;
   text-decoration: none;
+  border-radius: 4px;
   font-weight: bold;
-  transition: background-color 0.3s ease;
 }
 
 .btn:hover {
-  background-color: #e67e22;
+  background-color: #e6b800;
 }
 
-/* ================================
-   PIED DE PAGE
-================================ */
+/* ---- PAGE SERVICES ---- */
+#services {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.service {
+  background-color: #fff;
+  margin: 15px;
+  padding: 20px;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+  max-width: 90%;
+}
+
+.service img {
+  width: 100%;
+  max-width: 300px;
+  height: auto;
+  border-radius: 6px;
+}
+
+/* ---- FOOTER ---- */
 footer {
-  background-color: #1e1e1e;
-  color: white;
-  text-align: center;
-  padding: 20px 10px;
-  margin-top: 50px;
-  font-size: 0.9em;
+  background-color: #222;
+  color: #fff;
+  padding: 10px 0;
+  margin-top: 20px;
 }
 
-footer strong {
-  color: #f39c12;
-}
-
-/* ================================
-   RESPONSIVE
-================================ */
-@media (max-width: 600px) {
-  h1 {
-    font-size: 1.6em;
-  }
-
+/* === VUE TABLETTE === */
+@media screen and (min-width: 772px) {
   nav li {
-    flex: 1 1 100%;
+    display: inline-block;
+    margin: 0 15px;
   }
 
-  .btn {
-    padding: 8px 15px;
+  .vehicule, .service {
+    display: inline-block;
+    width: 45%;
+    vertical-align: top;
+  }
+
+  #services {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .vehicule img, .service img {
+    max-height: 30vh; /* 30 % de la hauteur visible */
+    object-fit: cover;
+  }
+}
+
+/* === VUE GRAND ÉCRAN === */
+@media screen and (min-width: 998px) {
+  .vehicule, .service {
+    width: 30%;
+  }
+
+  #vehicules-phares, #services {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+
+  nav ul {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
   }
 }
