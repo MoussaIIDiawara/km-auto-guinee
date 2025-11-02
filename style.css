@@ -174,3 +174,41 @@ footer strong {
     padding: 8px 15px;
   }
 }
+
+/* Vue Tablette */
+@media (min-width: 772px) and (max-width: 997px) {
+  .catalogue {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+
+  .car {
+    width: 45%;
+    margin-bottom: 20px;
+  }
+
+  .car img {
+    max-height: 30vh;
+    width: auto;
+  }
+}
+
+/* Vue Grand Écran */
+@media (min-width: 998px) {
+  .catalogue {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+
+  .car {
+    width: 30%;
+    margin-bottom: 20px;
+  }
+
+  .car img {
+    max-height: 30vh;
+    width: auto;
+  }
+}
