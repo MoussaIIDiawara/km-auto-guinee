@@ -1,26 +1,15 @@
-// Sélectionne toutes les voitures
-const cars = document.querySelectorAll('.car');
+// Fonction appelée quand on survole une voiture
+function survolVoiture(element) {
+    element.style.transform = "scale(1.05)";
+    element.style.transition = "transform 0.3s";
+}
 
-// Parcourt chaque voiture pour ajouter les événements
-cars.forEach(car => {
-  const img = car.querySelector('img');  // l'image de la voiture
-  const btn = car.querySelector('.btn'); // le bouton "Voir plus"
+// Fonction appelée quand on quitte la voiture
+function sortieVoiture(element) {
+    element.style.transform = "scale(1)";
+}
 
-  // Effet au survol de l'image
-  img.addEventListener('mouseover', () => {
-    img.style.transform = 'scale(1.1)';
-    img.style.borderColor = '#f39c12'; // bordure orange
-  });
-
-  // Effet à la sortie de la souris
-  img.addEventListener('mouseout', () => {
-    img.style.transform = 'scale(1)';
-    img.style.borderColor = '#ddd'; // bordure originale
-  });
-
-  // Clic sur le bouton "Voir plus"
-  btn.addEventListener('click', (e) => {
-    e.preventDefault(); // empêche le lien de se charger pour l'instant
-    alert(`Vous allez voir le détail de ${car.querySelector('h3').innerText}`);
-  });
-});
+// Fonction pour afficher une alerte quand on clique sur "Voir plus"
+function voirPlus(voiture) {
+    alert("Vous allez voir plus de détails sur : " + voiture);
+}
